@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "213505269041",
+    "firebase_url": "https://andee-94cb1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "andee-94cb1",
+    "storage_bucket": "andee-94cb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213505269041:android:78c6ab83834b1c1b7ea410",
+        "android_client_info": {
+          "package_name": "com.example.andeee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDta7EvLz-WYfNwtv0bZpPMhY8WjOIMjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
