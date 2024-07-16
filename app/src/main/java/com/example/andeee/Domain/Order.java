@@ -12,7 +12,7 @@ public class Order {
 
     private String paymentStatus;
 
-    private String phoneNumber, address;
+    private String phoneNumber, address, dateOrder;
 
     public String getAddress() {
         return address;
@@ -38,9 +38,18 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Order(String orderId,String userEmail, ArrayList<Foods> items, double totalFee, String paymentMethod, String paymentStatus, String phoneNumber, String address) {
+    public String getDateOrder() {
+        return dateOrder;
+    }
+
+    public void setDateOrder(String dateOrder) {
+        this.dateOrder = dateOrder;
+    }
+
+    public Order(String orderId, String dateOrder, String userEmail, ArrayList<Foods> items, double totalFee, String paymentMethod, String paymentStatus, String phoneNumber, String address) {
         this.orderId = orderId;
         this.userEmail = userEmail;
+        this.dateOrder = dateOrder;
         this.items = items;
         this.totalFee = totalFee;
         this.paymentMethod = paymentMethod;

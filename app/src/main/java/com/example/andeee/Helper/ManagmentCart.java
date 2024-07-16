@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ManagmentCart {
@@ -108,8 +110,12 @@ public class ManagmentCart {
                     // Cập nhật số thứ tự mới
                     orderCountRef.setValue(orderCount);
 
+                    LocalDate currentDate = LocalDate.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    String formattedDate = currentDate.format(formatter);
+
                     // Tạo đơn hàng mới với số thứ tự tăng dần
-                    Order order = new Order(String.valueOf(orderCount), userEmail, listItem, totalPrice, paymentMethod, paymentStatus, phoneNumber, address);
+                    Order order = new Order(String.valueOf(orderCount), userEmail, formattedDate, listItem, totalPrice, paymentMethod, paymentStatus, phoneNumber, address);
                     databaseReference.child("orders").child(String.valueOf(orderCount)).setValue(order)
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
@@ -129,7 +135,7 @@ public class ManagmentCart {
                     Toast.makeText(context, "Failed to get order count.", Toast.LENGTH_SHORT).show();
                 }
             });
-                } else {
+        } else {
             Toast.makeText(context, "Cart is empty or user is not authenticated.", Toast.LENGTH_SHORT).show();
         }
     }
@@ -151,4 +157,3 @@ public class ManagmentCart {
         return "";
     }
 }
-
